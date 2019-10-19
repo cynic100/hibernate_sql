@@ -20,7 +20,7 @@ public class CustomerTest {
 		
 		try {
 			Customer customer = new Customer();
-//			customer.setCust_id(1);
+			customer.setCust_id(1);
 			customer.setCust_name("测试2");
 			openSession.save(customer);
 			beginTransaction.commit();
