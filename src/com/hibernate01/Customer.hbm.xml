@@ -7,6 +7,7 @@
 	<class name="com.hibernate01.Customer" table="cst_customer">
 		<!-- 建立类中的属性与表中的主键对应 -->
 		<id name="cust_id" column="cust_id" >
+		<!-- 主键生成 -->
 			<generator class="native"/>
 		</id>
 		<!-- 建立类中的普通的属性和表的字段的对应 -->

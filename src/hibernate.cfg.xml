@@ -6,12 +6,22 @@
 
 <hibernate-configuration>
 	<session-factory>
+	    <!-- 数据库驱动 -->
 		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<!-- 数据库url -->
 		<property name="connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=hibernate</property>
-		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
-		
+		<!-- 数据库连接用户名 -->
 		<property name="hibernate.connection.username">sa</property>
+		<!-- 数据库连接密码 -->
 		<property name="hibernate.connection.password">123</property>
+		<!-- 数据库方言
+			不同的数据库中,sql语法略有区别. 指定方言可以让hibernate框架在生成sql语句时.针对数据库的方言生成.
+			sql99标准: DDL 定义语言  库表的增删改查
+					  DCL 控制语言  事务 权限
+					  DML 操纵语言  增删改查
+			注意: MYSQL在选择方言时,请选择最短的方言.
+		 -->
+		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="format_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
@@ -28,6 +38,18 @@
 		<property name="c3p0.timeout">120</property>
 		 <!--每3000秒检查所有连接池中的空闲连接 以秒为单位-->
 		<property name="c3p0.idle_test_period">3000</property>
+		<!-- 指定hibernate操作数据库时的隔离级别 
+			#hibernate.connection.isolation 1|2|4|8		
+			0001	1	读未提交
+			0010	2	读已提交
+			0100	4	可重复读
+			1000	8	串行化
+		 -->
+		 <property name="hibernate.connection.isolation">4</property>
+		<!-- 指定session与当前线程绑定 -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		
 		<mapping resource="com/hibernate01/Customer.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

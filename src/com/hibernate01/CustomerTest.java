@@ -15,6 +15,9 @@ import com.hibernate01.utils.HibernateUtils;
 
 public class CustomerTest {
 	
+	
+	
+	
 	@Test
 	public void Query() {
 		Session session= HibernateUtils.openSession();
@@ -56,7 +59,7 @@ public class CustomerTest {
 		Session session= HibernateUtils.openSession();
 		Transaction beginTransaction = session.beginTransaction();
 		
-		Customer customer2 = session.get(Customer.class, 2);
+		Customer customer2 = session.get(Customer.class, 3);
 		session.delete(customer2);
 		
 		beginTransaction.commit();
@@ -76,7 +79,7 @@ public class CustomerTest {
 		Session session= HibernateUtils.openSession();
 		Transaction beginTransaction = session.beginTransaction();
 		
-		Customer customer2 = session.get(Customer.class, 2);
+		Customer customer2 = session.get(Customer.class, 1);
 		customer2.setCust_industry("111");
 		session.update(customer2);
 		
@@ -125,6 +128,31 @@ public class CustomerTest {
 		
 		beginTransaction.commit();
 		session.close();
+	}
+	
+	
+	/**  
+	* @Description: 使用事务(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return void    返回类型  
+	* @throws  
+	*/
+	@Test
+	public void Insert3() {
+		Session session= HibernateUtils.getCurrentSession();
+		Transaction beginTransaction = session.beginTransaction();
+		
+		Customer customer = new Customer();
+		customer.setCust_id(1);
+		customer.setCust_name("测试3");
+		
+		Serializable save = session.save(customer);
+		System.out.println(save);
+		
+		beginTransaction.commit();
+	
+		
 	}
 	
 	/**  
