@@ -201,7 +201,7 @@ public class CustomerTest {
 		try {
 			Customer customer = new Customer();
 			customer.setCust_id(1);
-			customer.setCust_name("测试2");
+			customer.setCust_name("测试5");
 			openSession.save(customer);
 			beginTransaction.commit();
 		} catch (Exception e) {

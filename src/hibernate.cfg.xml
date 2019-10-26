@@ -21,7 +21,9 @@
 					  DML 操纵语言  增删改查
 			注意: MYSQL在选择方言时,请选择最短的方言.
 		 -->
-		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+		 <!-- SQLserver2008以及以后的版本时hibernate配置的方言org.hibernate.dialect.SQLServer2008Dialect -->
+		<property name="dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+		<!-- <property name="dialect">org.hibernate.dialect.SQLServerDialect</property> -->
 		<property name="hibernate.show_sql">true</property>
 		<property name="format_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
