@@ -51,8 +51,11 @@
 		<!-- 指定session与当前线程绑定 -->
 		<property name="hibernate.current_session_context_class">thread</property>
 		
-		
-		<mapping resource="com/hibernate01/Customer.hbm.xml"/>
+		<!-- com.hibernate01 -->
+		<!-- <mapping resource="com/hibernate01/Customer.hbm.xml"/> -->
+		<!-- com.hibernate03 -->
+		<mapping resource="com/hibernate03/Customer.hbm.xml"/>
+		<mapping resource="com/hibernate03/LinkMan.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
 
