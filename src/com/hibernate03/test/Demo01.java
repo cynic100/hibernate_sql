@@ -213,7 +213,25 @@ public class Demo01 {
 		}
 	}
 	
-	
+	/*
+	 * 多表查询
+	 */
+	@Test
+	public void demo09() {
+		try {
+			Session session = HibernateUtils.openSession();
+			Transaction beginTransaction = session.beginTransaction();
+			Query query = session.createQuery("from Customer c inner join c.LinkMan");
+			List list = query.list();
+			for (Object object : list) {
+				System.out.println(object);
+			}
+			
+			beginTransaction.commit();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 	
 	
 	

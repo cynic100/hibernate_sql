@@ -34,6 +34,23 @@ public class Customer {
 	// 放置的多的一方的集合。Hibernate默认使用的是Set集合。
 	private Set<LinkMan> linkMans = new HashSet<LinkMan>();
 
+	
+	
+	/*public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	public Customer(int cust_id, String cust_name) {
+		super();
+		this.cust_id = cust_id;
+		this.cust_name = cust_name;
+	}
+	*/
+
+
 	public int getCust_id() {
 		return cust_id;
 	}
@@ -99,6 +116,17 @@ public class Customer {
 	public void setLinkMans(Set<LinkMan> linkMans) {
 		this.linkMans = linkMans;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Customer [cust_id=" + cust_id + ", cust_name=" + cust_name + ", cust_source=" + cust_source
+				+ ", cust_industry=" + cust_industry + ", cust_level=" + cust_level + ", cust_phone=" + cust_phone
+				+ ", cust_mobile=" + cust_mobile + "]";
+	}
+
+	
 
 	
 
